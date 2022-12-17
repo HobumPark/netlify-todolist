@@ -8,7 +8,8 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      todoList: []
+      todoList: [],
+      id:1,
     }
   }
 
@@ -35,15 +36,14 @@ class App extends Component {
 
   onInsert = (text) => {
     //alert("추가!(App)")
-    const {todoList} = this.state
-    const id = todoList.length+1
+    const {todoList,id} = this.state
     const todoObj = {id:id,text:text}
     const concatedList = todoList.concat(todoObj) 
     this.setState({
       todoList:concatedList
     })
     this.setState({
-      id:id
+      id:id+1
     })
 
     //로컬스토리지에도 저장함 (영구 저장)
